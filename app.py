@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+app = Flask(__name__)
+
 @app.route('/')
 def homepage():
 	f = open('goods.txt', 'r+', encoding='utf-8')
@@ -12,4 +14,7 @@ def add():
 	f = open('goods.txt', 'a+', encoding='utf-8')
 	f.write(good + "\n")
 	f.close()
-	return "Инвентарь пополнен"
+	return """
+		<h1>Инвентарь поплнен<h1>
+		<a href='/'>Домой</a>
+	"""
